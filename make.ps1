@@ -10,8 +10,8 @@ $OUT_FOLDER = "target"
 
 function build(){
     $libraries = (
-        "$WIN_KIT_PATH\um\x64\kernel32.Lib",
-        "$WIN_KIT_PATH\um\x64\WS2_32.Lib"
+        "$WIN_LIB_PATH\um\x64\kernel32.Lib",
+        "$WIN_LIB_PATH\um\x64\WS2_32.Lib"
     )
     
     # Compile asm to machine code

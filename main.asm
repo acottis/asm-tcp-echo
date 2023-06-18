@@ -89,7 +89,8 @@ entry:
     mov rdx, SOMAXCONN
     call listen
 
-    ; LOOP START HERE
+; Loop over connections
+handle_connection:
     ; accept
     mov rcx, [socket_descriptor]
     mov rdx, 0x00
@@ -105,7 +106,7 @@ entry:
     mov r9, 0x00
     call recv
 
-    ; send (Echo server so reusing recv_buf)
+    ; send (Echo server so re-using recv_buf)
     mov rcx, [client_socket]
     mov rdx, recv_buf
     mov r8,  rax
@@ -115,6 +116,8 @@ entry:
     ; Close the client socket
     mov rcx, [client_socket]
     call closesocket
+    
+    jmp handle_connection
 
     ; Exit with last return exit code
     mov rcx, rax
