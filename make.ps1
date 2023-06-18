@@ -1,4 +1,6 @@
 Param(
+    # https://learn.microsoft.com/en-us/cpp/build/reference/debug-generate-debug-info?view=msvc-170
+    [ValidateSet('FULL','NONE','FASTLINK')]
     [String]$Debug = 'NONE' 
 )
 
